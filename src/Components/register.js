@@ -22,7 +22,7 @@ const Register = () => {
       validationSchema: signupSchema,
       onSubmit: async (values, action) => {
         await axios
-          .post("http://localhost:3001/register", values)
+          .post("https://todo-server-7vg8.onrender.com/register", values)
           .then((res) => {
             action.resetForm();
             toast.success("Registered Succesfully", {

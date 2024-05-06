@@ -21,7 +21,7 @@ const Home = () => {
   const [editTaskDate, setEditTaskDate] = useState(taskData.date);
 
   const getUser = async (id) => {
-    const data = await axios.get(`http://localhost:3001/getUser/${id}`);
+    const data = await axios.get(`https://todo-server-7vg8.onrender.com/getUser/${id}`);
     setUserData(data.data);
   };
 
@@ -62,7 +62,7 @@ const Home = () => {
         progress: undefined,
       });
     } else {
-      const sendTask = await axios.post(`http://localhost:3001/addTask/${id}`, {
+      const sendTask = await axios.post(`https://todo-server-7vg8.onrender.com/addTask/${id}`, {
         date: addDate,
         task: addTask,
       });
@@ -83,7 +83,7 @@ const Home = () => {
   };
 
   const getTaskList = async (id) => {
-    const data = await axios.get(`http://localhost:3001/getUsersTask/${id}`);
+    const data = await axios.get(`https://todo-server-7vg8.onrender.com/getUsersTask/${id}`);
     setTaskData(data.data);
   };
 
@@ -105,7 +105,7 @@ const Home = () => {
           label: "Yes",
           onClick: async () => {
             const task = await axios.delete(
-              `http://localhost:3001/deleteTask/${id}`
+              `https://todo-server-7vg8.onrender.com/deleteTask/${id}`
             );
             if (task.data.status == 200) {
               toast.success(`${task.data.msg}`, {
@@ -131,7 +131,7 @@ const Home = () => {
 
   const getTask = async (id) => {
     handleShow1();
-    const task = await axios.get(`http://localhost:3001/getTask/${id}`);
+    const task = await axios.get(`https://todo-server-7vg8.onrender.com/getTask/${id}`);
     setTask(task.data);
     setEditTaskDate(task.data.date);
     setEditTaskTask(task.data.task);
@@ -145,7 +145,7 @@ const Home = () => {
       status: selectedOption.value,
     };
     const sendData = await axios.post(
-      `http://localhost:3001/updateTask/${id}`,
+      `https://todo-server-7vg8.onrender.com/updateTask/${id}`,
       value
     );
     if (sendData.data.status == 200) {

@@ -24,7 +24,7 @@ const Login = () => {
         progress: undefined,
       });
     } else {
-      const sendData = await axios.post("http://localhost:3001/login", {
+      const sendData = await axios.post("https://todo-server-7vg8.onrender.com/login", {
         email: email,
         password: password,
       });
